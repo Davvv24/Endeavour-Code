@@ -1,5 +1,5 @@
 import numpy as np
-
+from pathlib import Path
 
 def eng_to_numpy(fp:str) -> np.ndarray:
     """Converts a file in eng format to a numpy array of data"""
@@ -11,15 +11,16 @@ def eng_to_numpy(fp:str) -> np.ndarray:
 
 
 # thrust profile for Cesaroni motor
+# data downloaded from https://www.thrustcurve.org/motors/Cesaroni/266H125-12A/
 def thrust_profile_cesaroni(t): 
     if t>2.15: return 0.0
     if t>=0.0: return np.interp(t,cesaroni_data[:,0], cesaroni_data[:,1])
     else: raise ValueError("t value can't be negative.")
 
-
 g = 9.81  # acceleration due to gravity in m/s^2
 rho0 =  1.225  # density of air at seas level in kg/m^3
-cesaroni_data = eng_to_numpy(r"C:\Users\rizzo\Code\VSC-Asus\University Code\Endeavour\Bayes-Simulator-main\data\Cesaroni_266H125-12A.eng")
+CESARONI_DATA_PATH = Path("data\Cesaroni_266H125-12A.eng")
+cesaroni_data = eng_to_numpy(CESARONI_DATA_PATH)
 
 # Rocket parameters
 total_mass = 0.923
