@@ -19,7 +19,7 @@ def thrust_profile_cesaroni(t):
 
 g = 9.81  # acceleration due to gravity in m/s^2
 rho0 =  1.225  # density of air at seas level in kg/m^3
-CESARONI_DATA_PATH = Path("data\Cesaroni_266H125-12A.eng")
+CESARONI_DATA_PATH = Path("/Users/guilhermegarcia/GLCGarcia documents /University /4th year 2024/Bayes /Endeavour-Code/data/Cesaroni_266H125-12A.eng")
 cesaroni_data = eng_to_numpy(CESARONI_DATA_PATH)
 
 # Rocket parameters
